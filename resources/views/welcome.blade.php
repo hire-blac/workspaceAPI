@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -20,9 +23,138 @@
             }
         </style>
     </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <h2>Workspace API</h2>
+    <body class="antialiased justify-center">
+      <h2 class="text-center">Workspace API</h2>
+        <div class="container">
+            
+          <table class="table table-bordered border-primary">
+            <thead>Workspace Types</thead>
+              <tr>
+                <th>method</th>
+                <th class="">description</th>
+                <th>api route</th>
+              </tr>
+
+              <tr>
+                <td>get</td>
+                <td class="">get all the types of workspaces</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get single type of workspaces</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}</a></td>
+              </tr> 
+
+              <tr>
+                <td>post</td>
+                <td class="">add new type of workspaces</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/new">https://workspaceapi.herokuapp.com/api/space-type/new</a></td>
+              </tr>
+
+              <tr>
+                <td>put</td>
+                <td class="">edit single type of workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/update</a></td>
+              </tr> 
+
+              <tr>
+                <td>delete</td>
+                <td class="">delete single type of workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/delete</a></td>
+              </tr> 
+
+            </table>
+                 
+          <table class="table table-bordered border-primary">
+            <thead>Spaces</thead>
+              <tr>
+                <th>method</th>
+                <th class="">description</th>
+                <th>api route</th>
+              </tr>
+
+              <tr>
+                <td>get</td>
+                <td class="">get all workspaces</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get single workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}</a></td>
+              </tr> 
+
+              <tr>
+                <td>post</td>
+                <td class="">add new workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space/new">https://workspaceapi.herokuapp.com/api/space/new</a></td>
+              </tr>
+
+              <tr>
+                <td>put</td>
+                <td class="">edit single workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/update</a></td>
+              </tr> 
+
+              <tr>
+                <td>delete</td>
+                <td class="">delete single workspace</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/delete</a></td>
+              </tr> 
+
+            </table>
+                 
+          <table class="table table-bordered border-primary">
+            <thead>Booking</thead>
+              <tr>
+                <th>method</th>
+                <th class="">description</th>
+                <th>api route</th>
+              </tr>
+
+              <tr>
+                <td>get</td>
+                <td class="">get all bookings</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get single booking</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}</a></td>
+              </tr> 
+
+              <tr>
+                <td>post</td>
+                <td class="">make new booking</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/new">https://workspaceapi.herokuapp.com/api/bookings/new</a></td>
+              </tr>
+
+              <tr>
+                <td>get</td>
+                <td class="">get all the bookings for a single day(dd/mm/yyyy)</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get all available(workspaces not booked) the wokspaces for a single day(dd/mm/yyyy)</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
+              </tr> 
+
+              <tr>
+                <td>delete</td>
+                <td class="">delete single bookings</td>
+                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}/delete</a></td>
+              </tr> 
+
+            </table>
+            
         </div>
     </body>
+      <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}" defer></script>
 </html>

@@ -35,5 +35,4 @@ Route::get("bookings/{id?}", [BookingsController::class, "index"]);
 Route::get("bookings/day-bookings/{day}", [BookingsController::class, "day_bookings"]);
 Route::get("bookings/day-bookings/{day}/available", [BookingsController::class, "available_space"]);
 Route::post("bookings/new", [BookingsController::class, "store"]);
-Route::put("bookings/{id}/update", [BookingsController::class, "update"]);
 Route::delete("bookings/{id}/delete", [BookingsController::class, "destroy"]);
