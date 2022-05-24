@@ -20,20 +20,24 @@ class BookingsController extends Controller
     }
 
     // show all the bookings for a single day
-    public function day_bookings($day)
+    public function day_bookings($date)
     {
-      return Booking::where('week_day', $day)->get();
+      $date = date_create($date);
+      $date_string = date_format($date, 'd-m-Y');
+
+      return Booking::where('date', $date_string)->get();
     }
 
     // show all the available work spaces for a single day
-    public function available_space($day)
+    public function available_space($date)
     {
+      $date = date_create($date);
+      $date_string = date_format($date, 'd-m-Y');
+
       $spaces = Space::all()->toArray();
-      $bookings = Booking::where('week_day', $day)->get();
-      $bookedSpaces = array();
+      $bookings = Booking::where('date', $date_string)->get();
 
       foreach ($bookings as $booked) {
-        array_push($bookedSpaces, $booked->space);
         for ($i=0; $i < count($spaces); $i++) { 
           if ($spaces[$i]['space_name'] == $booked->space->space_name) {
             unset($spaces[$i]);
