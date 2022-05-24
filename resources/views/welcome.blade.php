@@ -43,31 +43,31 @@
               <tr>
                 <td>get</td>
                 <td class="">get all the types of workspaces</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/</a></td>
+                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/</a></td>
               </tr> 
 
               <tr>
                 <td>get</td>
                 <td class="">get single type of workspaces</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}</a></td>
+                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}</a></td>
               </tr> 
 
               <tr>
                 <td>post</td>
                 <td class="">add new type of workspaces</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/new">https://workspaceapi.herokuapp.com/api/space-type/new</a></td>
+                <td><a href="/api/space-type/new">https://workspaceapi.herokuapp.com/api/space-type/new</a></td>
               </tr>
 
               <tr>
                 <td>put</td>
                 <td class="">edit single type of workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/update</a></td>
+                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/update</a></td>
               </tr> 
 
               <tr>
                 <td>delete</td>
                 <td class="">delete single type of workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/delete</a></td>
+                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/delete</a></td>
               </tr> 
 
             </table>
@@ -83,31 +83,31 @@
               <tr>
                 <td>get</td>
                 <td class="">get all workspaces</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/</a></td>
+                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/</a></td>
               </tr> 
 
               <tr>
                 <td>get</td>
                 <td class="">get single workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}</a></td>
+                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}</a></td>
               </tr> 
 
               <tr>
                 <td>post</td>
                 <td class="">add new workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space/new">https://workspaceapi.herokuapp.com/api/space/new</a></td>
+                <td><a href="/api/space/new">https://workspaceapi.herokuapp.com/api/space/new</a></td>
               </tr>
 
               <tr>
                 <td>put</td>
                 <td class="">edit single workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/update</a></td>
+                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/update</a></td>
               </tr> 
 
               <tr>
                 <td>delete</td>
                 <td class="">delete single workspace</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/delete</a></td>
+                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/delete</a></td>
               </tr> 
 
             </table>
@@ -123,37 +123,37 @@
               <tr>
                 <td>get</td>
                 <td class="">get all bookings</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/</a></td>
+                <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/</a></td>
               </tr> 
 
               <tr>
                 <td>get</td>
                 <td class="">get single booking</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}</a></td>
+                <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}</a></td>
               </tr> 
 
               <tr>
                 <td>post</td>
                 <td class="">make new booking</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/new">https://workspaceapi.herokuapp.com/api/bookings/new</a></td>
+                <td><a href="/api/bookings/new">https://workspaceapi.herokuapp.com/api/bookings/new</a></td>
               </tr>
 
               <tr>
                 <td>get</td>
                 <td class="">get all the bookings for a single day(dd-mm-yyyy)</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}</a></td>
+                <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}</a></td>
               </tr> 
 
               <tr>
                 <td>get</td>
                 <td class="">get all available(workspaces not booked) the wokspaces for a single day(dd-mm-yyyy)</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
+                <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
               </tr> 
 
               <tr>
                 <td>delete</td>
                 <td class="">delete single bookings</td>
-                <td><a href="https://workspaceapi.herokuapp.com/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}/delete</a></td>
+                <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}/delete</a></td>
               </tr> 
 
             </table>
