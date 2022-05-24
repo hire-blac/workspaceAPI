@@ -29,6 +29,7 @@
     </head>
     <body class="antialiased justify-center">
       <h2 class="text-center">Workspace API</h2>
+      <h4 class="text-center"><a href="/notes">Link to Notes</a></h4>
         <div class="container">
             
           <table class="table table-bordered border-primary">
@@ -139,13 +140,13 @@
 
               <tr>
                 <td>get</td>
-                <td class="">get all the bookings for a single day(dd/mm/yyyy)</td>
+                <td class="">get all the bookings for a single day(dd-mm-yyyy)</td>
                 <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}</a></td>
               </tr> 
 
               <tr>
                 <td>get</td>
-                <td class="">get all available(workspaces not booked) the wokspaces for a single day(dd/mm/yyyy)</td>
+                <td class="">get all available(workspaces not booked) the wokspaces for a single day(dd-mm-yyyy)</td>
                 <td><a href="https://workspaceapi.herokuapp.com/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
               </tr> 
 
