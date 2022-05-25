@@ -21,12 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::group(['prefix'=>'api', 'middleware'=>'cors']);
+
 Route::get("space-type/{id?}", [SpaceTypeController::class, "index"]);
 Route::post("space-type/new", [SpaceTypeController::class, "store"]);
 Route::put("space-type/{id}/update", [SpaceTypeController::class, "update"]);
 Route::delete("space-type/{id}/delete", [SpaceTypeController::class, "destroy"]);
 
-Route::get("space/{id?}", [SpaceController::class, "index"])->middleware('cors');
+Route::get("space/{id?}", [SpaceController::class, "index"]);
 Route::post("space/new", [SpaceController::class, "store"]);
 Route::put("space/{id}/update", [SpaceController::class, "update"]);
 Route::delete("space/{id}/delete", [SpaceController::class, "destroy"]);
