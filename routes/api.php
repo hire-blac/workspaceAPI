@@ -6,10 +6,6 @@ use App\Http\Controllers\SpaceTypeController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\BookingsController;
 
-// header('Access-Control-Allow-Origin: *');
-// header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
-// header('Access-Control-Allow-Headers: Content-Type, X-Auth-Token, Origin, Authorization');
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,7 +26,7 @@ Route::post("space-type/new", [SpaceTypeController::class, "store"]);
 Route::put("space-type/{id}/update", [SpaceTypeController::class, "update"]);
 Route::delete("space-type/{id}/delete", [SpaceTypeController::class, "destroy"]);
 
-Route::get("space/{id?}", [SpaceController::class, "index"]);
+Route::get("space/{id?}", [SpaceController::class, "index"])->middleware('cors');
 Route::post("space/new", [SpaceController::class, "store"]);
 Route::put("space/{id}/update", [SpaceController::class, "update"]);
 Route::delete("space/{id}/delete", [SpaceController::class, "destroy"]);
