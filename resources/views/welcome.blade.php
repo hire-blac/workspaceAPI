@@ -43,7 +43,7 @@
               <tr>
                 <td>get</td>
                 <td class="">get all the types of workspaces</td>
-                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/</a></td>
+                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type</a></td>
               </tr> 
 
               <tr>
@@ -83,7 +83,7 @@
               <tr>
                 <td>get</td>
                 <td class="">get all workspaces</td>
-                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/</a></td>
+                <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space</a></td>
               </tr> 
 
               <tr>
@@ -123,7 +123,7 @@
               <tr>
                 <td>get</td>
                 <td class="">get all bookings</td>
-                <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/</a></td>
+                <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings</a></td>
               </tr> 
 
               <tr>
