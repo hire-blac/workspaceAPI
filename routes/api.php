@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix'=>'api', 'middleware'=>'cors'], function(){
+Route::middleware(['cors'])->group(function(){
 
   Route::get("space-type/{id?}", [SpaceTypeController::class, "index"]);
   Route::post("space-type/new", [SpaceTypeController::class, "store"]);
