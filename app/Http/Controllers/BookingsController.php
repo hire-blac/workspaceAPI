@@ -52,45 +52,38 @@ class BookingsController extends Controller
     // Create a new booking
     public function store(Request $request)
     {
-        $date = date_create($request->date);
-        $weekday = date_format($date, 'l');
-        $date_string = date_format($date, 'd-m-Y');
+        // convert date string to array
+        $dateArray = explode(",", $request->date);
 
-        // $this->validate($request, [
-        //   'space_id' => 'required|unique:bookings,space_id,NULL,id,week_day',
-        //   'week_day' => 'required'
-        // ]);
+        // loop through array elements and create date objects
+        foreach ($dateArray as $day) {
+          $date = date_create($day);
 
-        // $validator = Validator::make($request->all(), [
-        //   'space_id' => 'required|unique:bookings,space_id,NULL,id,week_day',
-        //   'week_day' => 'required'
-        // ]);
+          $weekday = date_format($date, 'l');
+          $date_string = date_format($date, 'd-m-Y');
 
-        // Validate booking doesnt already exist
+          // Validate booking doesnt already exist
+          if ($weekday == "Saturday" or $weekday == "Sunday") {
+              return ["response"=>"Booking must be on a weekday"];
+          } else {
+              $booked = Booking::where('space_id',$request->space_id)
+              ->where('date',$date_string)
+              ->get();
 
-        if ($weekday == "Saturday" or $weekday == "Sunday") {
-            return ["response"=>"Booking must be on a weekday"];
-        } else {
-            $booked = Booking::where('space_id',$request->space_id)
-            ->where('date',$date_string)
-            ->get();
-
-            // return count($booked);
-
-            if (count($booked)>0) {
-                return ["response"=>"worksapce already booked for that day"];
-            } 
-            else {
-                $booking = new Booking;
-                $booking->space_id = $request->space_id;
-                $booking->week_day = $weekday;
-                $booking->date = $date_string;
-                $response = $booking->save();
-
-                return $response ? ["response"=>"object saved"] : ["response"=>"error occured"];
-            }
+              if (count($booked)>0) {
+                  return ["response"=>"worksapce already booked for that day"];
+              } 
+              else {
+                  $booking = new Booking;
+                  $booking->space_id = $request->space_id;
+                  $booking->week_day = $weekday;
+                  $booking->date = $date_string;
+                  $response = $booking->save();
+              }
+          }
         }
 
+        return $response ? ["response"=>"object saved"] : ["response"=>"error occured"];
     }
 
     // Delete Booking
