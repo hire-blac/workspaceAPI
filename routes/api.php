@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpaceTypeController;
 use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\BookingsController;
+use App\Http\Controllers\Availability;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['cors'])->group(function(){
 
+  Route::get("available/{day}/{space_type}", [Availability::class, "availableSpace"]);
+  
   Route::get("space-type/{id?}", [SpaceTypeController::class, "index"]);
   Route::post("space-type/new", [SpaceTypeController::class, "store"]);
   Route::put("space-type/{id}/update", [SpaceTypeController::class, "update"]);

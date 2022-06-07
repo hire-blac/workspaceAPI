@@ -31,46 +31,46 @@
       <h2 class="text-center">Workspace API</h2>
       <h4 class="text-center"><a href="/notes">Link to Notes</a></h4>
         <div class="container">
-            
+          
           <table class="table table-bordered border-primary">
             <thead>Workspace Types</thead>
-              <tr>
-                <th>method</th>
-                <th class="">description</th>
-                <th>api route</th>
-              </tr>
+            <tr>
+              <th>method</th>
+              <th class="">description</th>
+              <th>api route</th>
+            </tr>
 
-              <tr>
-                <td>get</td>
-                <td class="">get all the types of workspaces</td>
-                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type</a></td>
-              </tr> 
+            <tr>
+              <td>get</td>
+              <td class="">get all the types of workspaces</td>
+              <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type</a></td>
+            </tr> 
 
-              <tr>
-                <td>get</td>
-                <td class="">get single type of workspaces</td>
-                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}</a></td>
-              </tr> 
+            <tr>
+              <td>get</td>
+              <td class="">get single type of workspaces</td>
+              <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}</a></td>
+            </tr> 
 
-              <tr>
-                <td>post</td>
-                <td class="">add new type of workspaces</td>
-                <td><a href="/api/space-type/new">https://workspaceapi.herokuapp.com/api/space-type/new</a></td>
-              </tr>
+            <tr>
+              <td>post</td>
+              <td class="">add new type of workspaces</td>
+              <td><a href="/api/space-type/new">https://workspaceapi.herokuapp.com/api/space-type/new</a></td>
+            </tr>
 
-              <tr>
-                <td>put</td>
-                <td class="">edit single type of workspace</td>
-                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/update</a></td>
-              </tr> 
+            <tr>
+              <td>put</td>
+              <td class="">edit single type of workspace</td>
+              <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/update</a></td>
+            </tr> 
 
-              <tr>
-                <td>delete</td>
-                <td class="">delete single type of workspace</td>
-                <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/delete</a></td>
-              </tr> 
+            <tr>
+              <td>delete</td>
+              <td class="">delete single type of workspace</td>
+              <td><a href="/api/space-type/">https://workspaceapi.herokuapp.com/api/space-type/{id}/delete</a></td>
+            </tr> 
 
-            </table>
+          </table>
                  
           <table class="table table-bordered border-primary">
             <thead>Spaces</thead>
@@ -146,8 +146,14 @@
 
               <tr>
                 <td>get</td>
-                <td class="">get all available(workspaces not booked) the wokspaces for a single day(dd-mm-yyyy)</td>
+                <td class="">get all the available (not booked) wokspaces for a single day (dd-mm-yyyy)</td>
                 <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get all the available (not booked) wokspaces of a type (Smart office, Work station, Hot Desk) for a single day (dd-mm-yyyy)</td>
+                <td><a href="/api/available/">https://workspaceapi.herokuapp.com/api/available/{date}/{space_type_id}</a></td>
               </tr> 
 
               <tr>
