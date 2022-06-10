@@ -29,7 +29,7 @@
     </head>
     <body class="antialiased justify-center">
       <h2 class="text-center">Workspace API</h2>
-      <h4 class="text-center"><a href="/notes">Link to Notes</a></h4>
+      <h4 class="text-center"><a href="/notes" class="btn btn-outline-primary">Link to Notes</a></h4>
         <div class="container">
           
           <table class="table table-bordered border-primary">
@@ -108,6 +108,46 @@
                 <td>delete</td>
                 <td class="">delete single workspace</td>
                 <td><a href="/api/space/">https://workspaceapi.herokuapp.com/api/space/{id}/delete</a></td>
+              </tr> 
+
+            </table>
+                 
+          <table class="table table-bordered border-primary">
+            <thead>Hourly Booking</thead>
+              <tr>
+                <th>method</th>
+                <th class="">description</th>
+                <th>api route</th>
+              </tr>
+
+              <tr>
+                <td>get</td>
+                <td class="">get all hourly bookings</td>
+                <td><a href="/api/hourly-booking/">https://workspaceapi.herokuapp.com/api/hourly-booking</a></td>
+              </tr> 
+
+              <tr>
+                <td>get</td>
+                <td class="">get single hourly-booking</td>
+                <td><a href="/api/hourly-booking/">https://workspaceapi.herokuapp.com/api/hourly-booking/{id}</a></td>
+              </tr> 
+
+              <tr>
+                <td>post</td>
+                <td class="">make new hourly-booking</td>
+                <td><a href="/api/hourly-booking/new">https://workspaceapi.herokuapp.com/api/hourly-booking/new</a></td>
+              </tr>
+
+              <tr>
+                <td>put</td>
+                <td class="">edit single hourly-booking</td>
+                <td><a href="/api/hourly-booking/">https://workspaceapi.herokuapp.com/api/hourly-booking/{id}/update</a></td>
+              </tr> 
+
+              <tr>
+                <td>delete</td>
+                <td class="">delete single hourly-booking</td>
+                <td><a href="/api/hourly-booking/">https://workspaceapi.herokuapp.com/api/hourly-booking/{id}/delete</a></td>
               </tr> 
 
             </table>

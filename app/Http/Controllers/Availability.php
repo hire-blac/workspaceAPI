@@ -42,4 +42,32 @@ class Availability extends Controller
         return $spaces;
     }
 
+    // check for avalable hourly spaces for a day
+    public function hourlyAvailableSpace($day)
+    {
+        //
+        $date = date_create($day);
+        $date_string = date_format($date, 'd-m-Y');
+
+        // get spaces of a space type
+        $spaces = Space::where('space_type', 4)->get()->toArray();
+
+        // get bookings for day
+        $bookings = Booking::where('date', $date_string)->get();
+
+        // loop through bookings
+        foreach ($bookings as $booked) {
+          for ($i=0; $i < count($spaces); $i++) { 
+
+            // check if space has been booked for that day
+            if ($spaces[$i]['space_name'] == $booked->space->space_name) {
+              unset($spaces[$i]);
+              $spaces = array_values($spaces);
+            }
+          }
+        }
+        
+        return $spaces;
+    }
+
 }

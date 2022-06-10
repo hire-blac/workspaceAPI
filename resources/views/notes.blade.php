@@ -29,7 +29,7 @@
     </head>
     <body class="antialiased justify-center">
         <div class="container">
-          <h4 class="text-center"><a href="/">Back Home</a></h4>
+          <h4 class="text-center"><a href="/" class="btn btn-outline-primary">Back Home</a></h4>
 
             <h3>Workspace Types</h3>
             <p>
@@ -65,6 +65,21 @@
               <ul>
                 <li>Name (space_name)</li>
                 <li>Space type id (space_type) foreign key of workspace type</li>
+              </ul>
+            </p>
+
+            <h3>Hourly Bookngs</h3>
+            <p>
+              The spaces booked, date of booking and the start time. 
+              Also the bookings made for a particular day (dd-mm-yyyy) 
+              and the available work spaces for that day
+            </p>
+            <p>
+              Data required for DB
+              <ul>
+                <li>(space_id) id of booked space</li>
+                <li>(date)(dd-mm-yyyy) for booking</li>
+                <li>(start_time)(8am, 9am, etc) time for booking</li>
               </ul>
             </p>
 

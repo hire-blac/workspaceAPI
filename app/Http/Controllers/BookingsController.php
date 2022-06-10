@@ -67,10 +67,9 @@ class BookingsController extends Controller
               return ["response"=>"Booking must be on a weekday"];
           } else {
               $booked = Booking::where('space_id',$request->space_id)
-              ->where('date',$date_string)
-              ->get();
+              ->where('date',$date_string)->first();
 
-              if (count($booked)>0) {
+              if ($booked) {
                   return ["response"=>"worksapce already booked for that day"];
               } 
               else {
