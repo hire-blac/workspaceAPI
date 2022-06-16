@@ -50,7 +50,7 @@ class Availability extends Controller
         $date_string = date_format($date, 'd-m-Y');
 
         // get spaces of a space type
-        $spaces = Space::where('space_type', 4)->get()->toArray();
+        $spaces = Space::where('space_type', 3)->get()->toArray();
 
         // get bookings for day
         $bookings = Booking::where('date', $date_string)->get();

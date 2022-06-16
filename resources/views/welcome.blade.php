@@ -33,6 +33,28 @@
         <div class="container">
           
           <table class="table table-bordered border-primary">
+            <thead>Availability</thead>
+            <tr>
+              <th>method</th>
+              <th class="">description</th>
+              <th>api route</th>
+            </tr>
+
+            <tr>
+              <td>get</td>
+              <td class="">get all the available <b>HOT DESKS</b> (not booked) for a single day (dd-mm-yyyy)</td>
+              <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
+            </tr> 
+
+            <tr>
+              <td>get</td>
+              <td class="">get all the available wokspaces (not booked) of a type (Smart office, Work station, Hot Desk) for a single day (dd-mm-yyyy)</td>
+              <td><a href="/api/available/">https://workspaceapi.herokuapp.com/api/available/{date}/{space_type_id}</a></td>
+            </tr> 
+
+          </table>
+                 
+          <table class="table table-bordered border-primary">
             <thead>Workspace Types</thead>
             <tr>
               <th>method</th>
@@ -182,18 +204,6 @@
                 <td>get</td>
                 <td class="">get all the bookings for a single day(dd-mm-yyyy)</td>
                 <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}</a></td>
-              </tr> 
-
-              <tr>
-                <td>get</td>
-                <td class="">get all the available (not booked) wokspaces for a single day (dd-mm-yyyy)</td>
-                <td><a href="/api/bookings/day-bookings">https://workspaceapi.herokuapp.com/api/bookings/day-bookings/{date}/available</a></td>
-              </tr> 
-
-              <tr>
-                <td>get</td>
-                <td class="">get all the available (not booked) wokspaces of a type (Smart office, Work station, Hot Desk) for a single day (dd-mm-yyyy)</td>
-                <td><a href="/api/available/">https://workspaceapi.herokuapp.com/api/available/{date}/{space_type_id}</a></td>
               </tr> 
 
               <tr>
