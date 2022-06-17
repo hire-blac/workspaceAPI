@@ -39,36 +39,49 @@ class HourlyBookinController extends Controller
     public function store(Request $request)
     {
       $date = date_create($request->date);
-      $hour = DailyHours::firstWhere('hour', $request->start_time);
+      $start_hour = DailyHours::firstWhere('hour', $request->start_time);
+      $numhours = $request->num_hours;
 
-      $weekday = date_format($date, 'l');
-      $date_string = date_format($date, 'd-m-Y');
+      $total_hours = $start_hour->start + $numhours;
 
-      // Validate booking doesnt already exist
-      if ($weekday == "Saturday" or $weekday == "Sunday") {
-          return ["response"=>"Booking must be on a weekday"];
+      if ($total_hours > 17) {
+        return ["response"=>"Allowed hours exceeded"];
       } else {
-        // find day booking
-        $dayBooked = Booking::where('space_id',$request->space_id)
+
+        $weekday = date_format($date, 'l');
+        $date_string = date_format($date, 'd-m-Y');
+  
+        // Validate booking doesnt already exist
+        if ($weekday == "Saturday" or $weekday == "Sunday") {
+            return ["response"=>"Booking must be on a weekday"];
+        } else {
+          for ($i=$start_hour->start; $i < $total_hours; $i++) { 
+            $hour = DailyHours::firstWhere('start', $i);
+
+            // find day booking
+            $dayBooked = Booking::where('space_id',$request->space_id)
             ->where('date',$date_string)->first();
+            
+            // find hour booking
+            $hourBooked = HourlyBooking::where('space_id',$request->space_id)
+                ->where('date',$date_string)
+                ->where('hour',$hour->id)->first();
+            
+            if ($dayBooked or $hourBooked) {
+                return ["response"=>"worksapce already booked for that day and time"];
+            } 
+            else {
+              $hourbooking = new HourlyBooking;
+              $hourbooking->space_id = $request->space_id;
+              $hourbooking->week_day = $weekday;
+              $hourbooking->date = $date_string;
+              $hourbooking->hour = $hour->id;
         
-        // find hour booking
-        $hourBooked = HourlyBooking::where('space_id',$request->space_id)
-            ->where('date',$date_string)
-            ->where('hour',$hour->id)->first();
-        
-        if ($dayBooked or $hourBooked) {
-            return ["response"=>"worksapce already booked for that day and time"];
-        } 
-        else {
-          $hourbooking = new HourlyBooking;
-          $hourbooking->space_id = $request->space_id;
-          $hourbooking->week_day = $weekday;
-          $hourbooking->date = $date_string;
-          $hourbooking->hour = $hour->id;
-    
-          $response = $hourbooking->save();
+              $response = $hourbooking->save();
+            }
+          }
         }
+  
       }
 
       return $response ? ["response"=>"object saved"] : ["response"=>"error occured"];
