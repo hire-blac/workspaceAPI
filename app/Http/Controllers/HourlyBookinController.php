@@ -40,7 +40,8 @@ class HourlyBookinController extends Controller
     {
       $date = date_create($request->date);
       $start_hour = DailyHours::firstWhere('hour', $request->start_time);
-      $numhours = $request->num_hours;
+      
+      $numhours = $request->num_hours ? $request->num_hours : 1 ;
 
       $total_hours = $start_hour->start + $numhours;
 
