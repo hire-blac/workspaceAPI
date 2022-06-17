@@ -40,6 +40,7 @@ class DailyHoursController extends Controller
       $dailyhour->start = $request->start;
       $dailyhour->end = $request->end;
       $dailyhour->hour_value = $request->hour_value;
+      $dailyhour->timestamps = false;
 
       $response = $dailyhour->save();
 
