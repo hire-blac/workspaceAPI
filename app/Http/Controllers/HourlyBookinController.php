@@ -71,7 +71,7 @@ class HourlyBookinController extends Controller
             if ($dayBooked or $hourBooked) {
                 return ["response"=>"worksapce already booked for that day and time"];
             } 
-            else {
+            else { // all good
               $hourbooking = new HourlyBooking;
               $hourbooking->space_id = $request->space_id;
               $hourbooking->week_day = $weekday;
