@@ -7,6 +7,7 @@ use App\Models\HourlyBooking;
 use App\Models\Booking;
 use App\Models\DailyHours;
 use App\Models\Space;
+use App\Models\AllBookings;
 
 class HourlyBookinController extends Controller
 {
@@ -45,6 +46,10 @@ class HourlyBookinController extends Controller
 
       $total_hours = $start_hour->start + $numhours;
 
+      $allBooking = new AllBookings();
+      $allBooking->booking_type = "hourly";
+      $allBooking->save();
+
       if ($total_hours > 17) {
         return ["response"=>"Allowed hours exceeded"];
       } else {
@@ -72,11 +77,15 @@ class HourlyBookinController extends Controller
                 return ["response"=>"worksapce already booked for that day and time"];
             } 
             else { // all good
+
               $hourbooking = new HourlyBooking;
               $hourbooking->space_id = $request->space_id;
               $hourbooking->week_day = $weekday;
               $hourbooking->date = $date_string;
               $hourbooking->hour = $hour->id;
+
+              $allBooking->houlyBookings()->save($hourbooking);
+              $allBooking->refresh();
         
               $response = $hourbooking->save();
             }

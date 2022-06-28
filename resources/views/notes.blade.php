@@ -83,7 +83,7 @@
               </ul>
             </p>
 
-            <h3>Bookngs</h3>
+            <h3>Daily Bookings</h3>
             <p>
               The spaces booked and the days and dates of bookings. 
               Also the bookings made for a particular day (dd-mm-yyyy) 
@@ -94,6 +94,20 @@
               <ul>
                 <li>id of booked space (space_id) foreign key of workspace</li>
                 <li>date(dd-mm-yyyy) for booking (date)</li>
+              </ul>
+            </p>
+
+            <h3>Weekly Bookings</h3>
+            <p>
+              The spaces booked for a week and the days and dates of bookings. 
+              Also the bookings made for a particular Week starting at (dd-mm-yyyy) 
+              and the available work spaces for that Week.
+            </p>
+            <p>
+              Data required for DB
+              <ul>
+                <li>id of booked space (space_id) foreign key of workspace</li>
+                <li>Starting day of Weekly booking (dd-mm-yyyy) (start_date)</li>
               </ul>
             </p>
 

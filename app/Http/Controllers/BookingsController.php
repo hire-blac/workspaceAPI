@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Space;
+use App\Models\AllBookings;
 
 class BookingsController extends Controller
 {
@@ -55,6 +56,12 @@ class BookingsController extends Controller
         // convert date string to array
         $dateArray = explode(",", $request->date);
 
+        $space = Space::find($request->space_id);
+
+        $allBooking = new AllBookings();
+        $allBooking->booking_type = "daily";
+        $allBooking->save();
+
         // loop through array elements and create date objects
         foreach ($dateArray as $day) {
           $date = date_create($day);
@@ -65,7 +72,8 @@ class BookingsController extends Controller
           // Validate booking doesnt already exist
           if ($weekday == "Saturday" or $weekday == "Sunday") {
               return ["response"=>"Booking must be on a weekday"];
-          } else {
+          } 
+          else {
               $booked = Booking::where('space_id',$request->space_id)
               ->where('date',$date_string)->first();
 
@@ -73,11 +81,16 @@ class BookingsController extends Controller
                   return ["response"=>"worksapce already booked for that day"];
               } 
               else {
-                  $booking = new Booking;
-                  $booking->space_id = $request->space_id;
-                  $booking->week_day = $weekday;
-                  $booking->date = $date_string;
-                  $response = $booking->save();
+
+                $booking = new Booking;
+                $booking->space_id = $request->space_id;
+                $booking->week_day = $weekday;
+                $booking->date = $date_string;
+
+                $allBooking->dailyBookings()->save($booking);
+                $allBooking->refresh();
+
+                $response = $booking->save();
               }
           }
         }

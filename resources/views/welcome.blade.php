@@ -175,7 +175,7 @@
             </table>
                  
           <table class="table table-bordered border-primary">
-            <thead>Booking</thead>
+            <thead>Daily Booking</thead>
               <tr>
                 <th>method</th>
                 <th class="">description</th>
@@ -212,6 +212,22 @@
                 <td><a href="/api/bookings/">https://workspaceapi.herokuapp.com/api/bookings/{id}/delete</a></td>
               </tr> 
 
+            </table>  
+
+            <table class="table table-bordered border-primary">
+              <thead>Weekly Booking</thead>
+                <tr>
+                  <th>method</th>
+                  <th class="">description</th>
+                  <th>api route</th>
+                </tr>
+  
+                <tr>
+                  <td>post</td>
+                  <td class="">make new weekly booking</td>
+                  <td><a href="/api/weekly-booking/new">https://workspaceapi.herokuapp.com/api/weekly-booking/new</a></td>
+                </tr>
+  
             </table>
             
         </div>

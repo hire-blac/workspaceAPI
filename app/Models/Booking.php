@@ -13,6 +13,10 @@ class Booking extends Model
       return $this->belongsTo(Space::class);
     }
 
+    public function allBook(){
+      return $this->belongsTo(AllBookings::class);
+    }
+
     // public function dayOfMonth(){
     //   return $this->belongsTo('App\Models\DayOfMonth');
     // }

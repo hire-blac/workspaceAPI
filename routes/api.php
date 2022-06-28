@@ -8,6 +8,7 @@ use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\HourlyBookinController;
 use App\Http\Controllers\Availability;
 use App\Http\Controllers\DailyHoursController;
+use App\Http\Controllers\WeeklyBookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::middleware(['cors'])->group(function(){
 
   Route::get("dailyhours/{id?}", [DailyHoursController::class, "index"]);
   Route::post("dailyhours/new", [DailyHoursController::class, "store"]);
+
+  Route::post("weekly-booking/new", [WeeklyBookingController::class, "store"]);
   
   Route::get("available/{day}", [Availability::class, "hourlyAvailableSpace"]);
   Route::get("available/{day}/{space_type}", [Availability::class, "availableSpace"]);

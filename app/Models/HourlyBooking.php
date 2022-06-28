@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class HourlyBooking extends Model
 {
     use HasFactory;
+
+    public function allBook(){
+      return $this->belongsTo(AllBookings::class);
+    }
 }
