@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('hourly_bookings', function (Blueprint $table) {
-          $table->integer('all_bookings_id');
+        Schema::table('bookings', function (Blueprint $table) {
+          $table->integer('all_booking');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('hourly_bookings', function (Blueprint $table) {
-          $table->dropColumn('all_bookings_id');
+        Schema::table('bookings', function (Blueprint $table) {
+          $table->dropColumn('all_booking');
         });
     }
 };

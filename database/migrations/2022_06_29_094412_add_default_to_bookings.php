@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('bookings', function (Blueprint $table) {
-          $table->integer('all_bookings_id');
+          $table->integer('all_bookings_id')->default('1');
         });
     }
 
