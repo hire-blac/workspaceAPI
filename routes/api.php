@@ -7,7 +7,9 @@ use App\Http\Controllers\SpaceController;
 use App\Http\Controllers\BookingsController;
 use App\Http\Controllers\HourlyBookinController;
 use App\Http\Controllers\Availability;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DailyHoursController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\WeeklyBookingController;
 
 /*
@@ -21,11 +23,40 @@ use App\Http\Controllers\WeeklyBookingController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::middleware(['cors'])->group(function(){
+Route::middleware(['cors', 'json'])->group(function(){
+
+  // Customer Routes
+  Route::group(['prefix'=>'customer'],function(){
+    // unauthenticated customer routes here
+    Route::post("register", [CustomerController::class, 'register']);
+    Route::post("signin", [CustomerController::class, 'signIn']);
+
+    Route::group(['middleware'=> ['auth:customer', 'scope:costumer']], function(){
+      //authenticated customer routes here
+      Route::post("edit/{id?}", [CustomerController::class, 'edit']);
+      Route::post("logout", [CustomerController::class, 'logout']);
+
+    });
+  });
+
+  // Staff Routes
+  Route::group(['prefix'=>'staff'],function(){
+    // unauthenticated staff routes here
+    Route::post("register", [StaffController::class, 'register']);
+    Route::post("signin", [StaffController::class, 'signIn']);
+
+    Route::group(['middleware'=> ['auth:staff', 'scope:staff']], function(){
+      //authenticated staff routes here
+      Route::post("edit/{id?}", [StaffController::class, 'edit']);
+      Route::post("logout", [StaffController::class, 'logout']);
+
+    });
+  });
+
 
   Route::get("dailyhours/{id?}", [DailyHoursController::class, "index"]);
   Route::post("dailyhours/new", [DailyHoursController::class, "store"]);
