@@ -31,6 +31,31 @@
         <div class="container">
           <h4 class="text-center"><a href="/" class="btn btn-outline-primary">Back Home</a></h4>
 
+            <h3>User Authentication</h3>
+            <p>
+              The different types of users available
+              <ul>
+                <li>Staff</li>
+                <li>Customer</li>
+              </ul>
+            </p>
+            <p>
+              New User data required for DB
+              <ul>
+                <li>Name (name)</li>
+                <li>Email (email)</li>
+                <li>password (password)</li>
+              </ul>
+            </p>
+
+            <p>
+              User data required for login
+              <ul>
+                <li>Email (email)</li>
+                <li>password (password)</li>
+              </ul>
+            </p>
+
             <h3>Workspace Types</h3>
             <p>
               The different types of workspaces available

@@ -33,7 +33,7 @@ Route::middleware(['cors', 'json'])->group(function(){
   Route::group(['prefix'=>'customer'],function(){
     // unauthenticated customer routes here
     Route::post("register", [CustomerController::class, 'register']);
-    Route::post("signin", [CustomerController::class, 'signIn']);
+    Route::post("login", [CustomerController::class, 'signIn']);
 
     Route::group(['middleware'=> ['auth:customer', 'scope:costumer']], function(){
       //authenticated customer routes here
@@ -47,7 +47,7 @@ Route::middleware(['cors', 'json'])->group(function(){
   Route::group(['prefix'=>'staff'],function(){
     // unauthenticated staff routes here
     Route::post("register", [StaffController::class, 'register']);
-    Route::post("signin", [StaffController::class, 'signIn']);
+    Route::post("login", [StaffController::class, 'signIn']);
 
     Route::group(['middleware'=> ['auth:staff', 'scope:staff']], function(){
       //authenticated staff routes here

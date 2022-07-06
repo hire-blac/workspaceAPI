@@ -33,6 +33,57 @@
         <div class="container">
           
           <table class="table table-bordered border-primary">
+            <thead>Staff Authentication Routes</thead>
+            <tr>
+              <th>method</th>
+              <th class="">description</th>
+              <th>api route</th>
+            </tr>
+
+            <tr>
+              <td>post</td>
+              <td class="">Register new <b>STAFF</b> user</td>
+              <td><a href="/api/staff/register">https://workspaceapi.herokuapp.com/api/staff/register</a></td>
+            </tr> 
+
+            <tr>
+              <td>post</td>
+              <td class="">Login <b>STAFF</b> user</td>
+              <td><a href="/api/staff/register">https://workspaceapi.herokuapp.com/api/staff/login</a></td>
+            </tr> 
+
+            <tr>
+              <td>post</td>
+              <td class="">Logout <b>STAFF</b> user</td>
+              <td><a href="/api/staff/register">https://workspaceapi.herokuapp.com/api/staff/logout</a></td>
+            </tr> 
+
+          </table>
+
+          <table class="table table-bordered border-primary">
+            <thead>Customer Authentication Routes</thead>
+
+            <tr>
+              <td>post</td>
+              <td class="">Register new <b>CUSTOMER</b> user</td>
+              <td><a href="/api/customer/register">https://workspaceapi.herokuapp.com/api/customer/register</a></td>
+            </tr> 
+
+            <tr>
+              <td>post</td>
+              <td class="">Login <b>CUSTOMER</b> user</td>
+              <td><a href="/api/customer/register">https://workspaceapi.herokuapp.com/api/customer/login</a></td>
+            </tr> 
+
+            <tr>
+              <td>post</td>
+              <td class="">Logout <b>CUSTOMER</b> user</td>
+              <td><a href="/api/customer/register">https://workspaceapi.herokuapp.com/api/customer/logout</a></td>
+            </tr> 
+
+          </table>
+          
+          <table class="table table-bordered border-primary">
             <thead>Availability</thead>
             <tr>
               <th>method</th>
