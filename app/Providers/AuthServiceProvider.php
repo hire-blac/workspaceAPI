@@ -36,5 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::setDefaultScope([
             'customer',
         ]);
+
+        Passport::loadKeysFrom('/secret-keys/oauth');
     }
 }
