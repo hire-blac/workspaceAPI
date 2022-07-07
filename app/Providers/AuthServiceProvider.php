@@ -29,8 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::routes();
         Passport::tokensCan([
             'staff' => 'Access Admin Backend',
-            'customer' => 'Access Customer App',
-            'role' => 'Description for role',
+            'customer' => 'Access Customer App'
         ]);
 
         Passport::setDefaultScope([
