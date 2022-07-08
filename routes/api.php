@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ApiCustomerController;
+use App\Http\Controllers\ApiStaffController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SpaceTypeController;
@@ -32,13 +34,15 @@ Route::middleware(['cors', 'json'])->group(function(){
   // Customer Routes
   Route::group(['prefix'=>'customer'],function(){
     // unauthenticated customer routes here
-    Route::post("register", [CustomerController::class, 'register']);
-    Route::post("login", [CustomerController::class, 'signIn']);
+    // Route::post("register", [CustomerController::class, 'register']);
+    // Route::post("login", [CustomerController::class, 'signIn']);
+    Route::post("register", [ApiCustomerController::class, 'register']);
+    Route::post("login", [ApiCustomerController::class, 'login']);
 
     Route::group(['middleware'=> ['auth:customer', 'scope:costumer']], function(){
       //authenticated customer routes here
-      Route::post("edit/{id?}", [CustomerController::class, 'edit']);
-      Route::post("logout", [CustomerController::class, 'logout']);
+      // Route::post("logout", [CustomerController::class, 'logout']);
+      Route::get("me", [ApiCustomerController::class, 'me']);
 
     });
   });
@@ -46,13 +50,15 @@ Route::middleware(['cors', 'json'])->group(function(){
   // Staff Routes
   Route::group(['prefix'=>'staff'],function(){
     // unauthenticated staff routes here
-    Route::post("register", [StaffController::class, 'register']);
-    Route::post("login", [StaffController::class, 'signIn']);
+    // Route::post("register", [StaffController::class, 'register']);
+    // Route::post("login", [StaffController::class, 'signIn']);
+    Route::post("register", [ApiStaffController::class, 'register']);
+    Route::post("login", [ApiStaffController::class, 'login']);
 
     Route::group(['middleware'=> ['auth:staff', 'scope:staff']], function(){
       //authenticated staff routes here
-      Route::post("edit/{id?}", [StaffController::class, 'edit']);
-      Route::post("logout", [StaffController::class, 'logout']);
+      // Route::post("logout", [StaffController::class, 'logout']);
+      Route::post("me", [ApiStaffController::class, 'me']);
 
     });
   });

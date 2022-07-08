@@ -42,17 +42,27 @@ return [
       ],
    
       'api' => [
-          'driver' => 'passport',
+          'driver' => 'sanctum',
           'provider' => 'users',
       ],
 
       'staff' => [
-          'driver' => 'passport',
+          'driver' => 'session',
           'provider' => 'staff',
       ],
   
       'customer' => [
-          'driver' => 'passport',
+          'driver' => 'session',
+          'provider' => 'customer',
+      ],
+
+      'staff-api' => [
+          'driver' => 'sanctum',
+          'provider' => 'staff',
+      ],
+  
+      'customer-api' => [
+          'driver' => 'sanctum',
           'provider' => 'customer',
       ],
     ],
@@ -75,10 +85,10 @@ return [
     */
 
     'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => App\Models\User::class,
-        // ],
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
 
         'customer' => [
             'driver' => 'eloquent',
