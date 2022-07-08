@@ -58,7 +58,7 @@ Route::middleware(['cors', 'json'])->group(function(){
     Route::group(['middleware'=> ['auth:staff', 'scope:staff']], function(){
       //authenticated staff routes here
       // Route::post("logout", [StaffController::class, 'logout']);
-      Route::post("me", [ApiStaffController::class, 'me']);
+      Route::get("me", [ApiStaffController::class, 'me']);
 
     });
   });
