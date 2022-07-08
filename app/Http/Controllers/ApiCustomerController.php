@@ -32,7 +32,7 @@ class ApiCustomerController extends Controller
         $customer->last_login = Carbon::now();
         $customer->save();
 
-        Auth::user($customer);
+        Auth::login($customer);
         
         $token = $customer->createToken('Personal Access Token',['customer'])->plainTextToken;
 

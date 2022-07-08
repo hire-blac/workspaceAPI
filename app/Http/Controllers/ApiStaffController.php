@@ -32,7 +32,7 @@ class ApiStaffController extends Controller
         $staff->last_login = Carbon::now();
         $staff->save();
 
-        Auth::user($staff);
+        Auth::login($staff);
         
         $token = $staff->createToken('Personal Access Token',['staff'])->plainTextToken;
 
