@@ -73,4 +73,11 @@ class ApiCustomerController extends Controller
   {
       return $request->user();
   }
+
+    public function logout(Request $request)
+    {
+        $token = $request->user()->token();
+        $token->revoke();
+        return response(array('message'=>'You have been successfully logged out'), 200);
+    }
 }

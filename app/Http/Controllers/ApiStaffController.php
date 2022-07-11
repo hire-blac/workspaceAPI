@@ -51,6 +51,8 @@ class ApiStaffController extends Controller
       ]);
 
       if (Auth::attempt($credentials)) {
+
+          return Auth::user();
           config(['auth.guards.api.provider' => 'staff']);
 
           $staff = Staff::firstWhere('email', $request['email']);
@@ -71,6 +73,13 @@ class ApiStaffController extends Controller
 
   public function me(Request $request)
   {
-      return $request->user();
+    return $request->user();
+  }
+
+  public function logout(Request $request)
+  {
+      $token = $request->user()->token();
+      $token->revoke();
+      return response(array('message'=>'You have been successfully logged out'), 200);
   }
 }

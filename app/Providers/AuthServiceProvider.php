@@ -26,15 +26,15 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Passport::routes();
-        Passport::tokensCan([
-            'staff' => 'Access Admin Backend',
-            'customer' => 'Access Customer App'
-        ]);
+        // Passport::routes();
+        // Passport::tokensCan([
+        //     'staff' => 'Access Admin Backend',
+        //     'customer' => 'Access Customer App'
+        // ]);
 
-        Passport::setDefaultScope([
-            'customer',
-        ]);
+        // Passport::setDefaultScope([
+        //     'customer',
+        // ]);
 
         // Passport::loadKeysFrom('/secret-keys/oauth');
     }

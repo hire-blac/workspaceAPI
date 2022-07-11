@@ -39,9 +39,9 @@ Route::middleware(['cors', 'json'])->group(function(){
     Route::post("register", [ApiCustomerController::class, 'register']);
     Route::post("login", [ApiCustomerController::class, 'login']);
 
-    Route::group(['middleware'=> ['auth:customer', 'scope:costumer']], function(){
+    Route::group(['middleware'=> ['auth:sanctum', 'scope:costumer']], function(){
       //authenticated customer routes here
-      // Route::post("logout", [CustomerController::class, 'logout']);
+      Route::post("logout", [ApiCustomerController::class, 'logout']);
       Route::get("me", [ApiCustomerController::class, 'me']);
 
     });
@@ -55,9 +55,9 @@ Route::middleware(['cors', 'json'])->group(function(){
     Route::post("register", [ApiStaffController::class, 'register']);
     Route::post("login", [ApiStaffController::class, 'login']);
 
-    Route::group(['middleware'=> ['auth:staff', 'scope:staff']], function(){
+    Route::group(['middleware'=> ['auth:sanctum']], function(){
       //authenticated staff routes here
-      // Route::post("logout", [StaffController::class, 'logout']);
+      Route::post("logout", [ApiStaffController::class, 'logout']);
       Route::get("me", [ApiStaffController::class, 'me']);
 
     });
