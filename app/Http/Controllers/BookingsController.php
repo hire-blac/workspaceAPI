@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Validator;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Space;
 use App\Models\AllBookings;
+use App\Models\Staff;
+use Illuminate\Support\Facades\Auth;
+
 
 class BookingsController extends Controller
 {
@@ -17,7 +19,16 @@ class BookingsController extends Controller
      */
     public function index($id=null)
     {
-      return $id ? Booking::find($id) : Booking::all();
+
+      if (Auth::user() instanceOf Staff) {
+          return $id ? Booking::find($id) : Booking::all();
+      } else {
+          if($id){
+            $booking = Booking::find($id);
+            return $booking->user_id == Auth::user()->id ? $booking : ["message" => "Unauthorized access"];
+          }
+          return ["message" => "Restricted access"];
+      }
     }
 
     // show all the bookings for a single day
@@ -60,7 +71,10 @@ class BookingsController extends Controller
 
         $allBooking = new AllBookings();
         $allBooking->booking_type = "daily";
+        $allBooking->user_id = $request->user();
         $allBooking->save();
+
+        $bookings = [];
 
         // loop through array elements and create date objects
         foreach ($dateArray as $day) {
@@ -86,24 +100,33 @@ class BookingsController extends Controller
                 $booking->space_id = $request->space_id;
                 $booking->week_day = $weekday;
                 $booking->date = $date_string;
+                $booking->user_id = $request->user();
 
                 $allBooking->dailyBookings()->save($booking);
                 $allBooking->refresh();
 
                 $response = $booking->save();
+
+                array_push($bookings, $booking);
               }
           }
         }
 
-        return $response ? ["response"=>"object saved"] : ["response"=>"error occured"];
+        return $response ? ["message"=>"booking saved", "data"=>$bookings] : ["response"=>"error occured"];
     }
 
     // Delete Booking
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        $booking = Booking::find($id);
-        $response = $booking->delete();
 
-        return $response ? ["response"=>"object deleted"] : ["response"=>"error occured"];
+        $booking = Booking::find($id);
+
+        if($request->user()->id == $booking->user_id) {
+          $booking->delete();
+          $response = ["response"=>"object deleted"];
+        }
+        $response = ["message"=>"You do not have permission to delete this object"];
+
+        return $response;
     }
 }

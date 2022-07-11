@@ -36,7 +36,7 @@ class ApiStaffController extends Controller
         
         $token = $staff->createToken('Personal Access Token',['staff'])->plainTextToken;
 
-        $response = ['message'=>'You have successfully registered', 'data'=>[
+        $response = ['message'=>'You have successfully registered as a staff', 'data'=>[
             'staff'=>$staff, 'token' => $token]];
 
         return response($response, 200);
@@ -51,15 +51,13 @@ class ApiStaffController extends Controller
       ]);
 
       if (Auth::attempt($credentials)) {
-
-          return Auth::user();
           config(['auth.guards.api.provider' => 'staff']);
 
           $staff = Staff::firstWhere('email', $request['email']);
           
           $token = $staff->createToken('Personal Access Token',['staff'])->plainTextToken;
           
-          $response = ['message'=>'Login successfull', 'data'=>[
+          $response = ['message'=>'Staff login successfull', 'data'=>[
             'staff'=>$staff, 'token' => $token]];
 
           return response($response, 200);

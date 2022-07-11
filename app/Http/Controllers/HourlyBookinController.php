@@ -8,6 +8,9 @@ use App\Models\Booking;
 use App\Models\DailyHours;
 use App\Models\Space;
 use App\Models\AllBookings;
+use App\Models\Staff;
+use Illuminate\Support\Facades\Auth;
+
 
 class HourlyBookinController extends Controller
 {
@@ -18,7 +21,16 @@ class HourlyBookinController extends Controller
      */
     public function index($id=null)
     {
-      return $id ? HourlyBooking::find($id) : HourlyBooking::all();
+      
+      if (Auth::user() instanceOf Staff) {
+          return $id ? HourlyBooking::find($id) : HourlyBooking::all();
+      } else {
+          if($id){
+            $booking = HourlyBooking::find($id);
+            return $booking->user_id == Auth::user()->id ? $booking : ["message" => "Unauthorized access"];
+          }
+          return ["message" => "Restricted access"];
+      }
     }
 
     /**
@@ -49,6 +61,8 @@ class HourlyBookinController extends Controller
       $allBooking = new AllBookings();
       $allBooking->booking_type = "hourly";
       $allBooking->save();
+
+      $bookings = [];
 
       if ($total_hours > 17) {
         return ["response"=>"Allowed hours exceeded"];
@@ -83,18 +97,21 @@ class HourlyBookinController extends Controller
               $hourbooking->week_day = $weekday;
               $hourbooking->date = $date_string;
               $hourbooking->hour = $hour->id;
+              $hourbooking->user_id = $request->user();
 
               $allBooking->houlyBookings()->save($hourbooking);
               $allBooking->refresh();
         
               $response = $hourbooking->save();
+
+              array_push($bookings, $hourbooking);
             }
           }
         }
   
       }
 
-      return $response ? ["response"=>"object saved"] : ["response"=>"error occured"];
+      return $response ? ["message"=>"Hourly booking saved", "data"=>$bookings] : ["response"=>"error occured"];
     }
 
     /**

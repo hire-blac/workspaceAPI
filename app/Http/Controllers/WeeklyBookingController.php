@@ -106,6 +106,7 @@ class WeeklyBookingController extends Controller
             $booking->space_id = $request->space_id;
             $booking->week_day = $weekday;
             $booking->date = $date_string;
+            $booking->user_id = $request->user();
             
             $allBooking->dailyBookings()->save($booking);
             $allBooking->refresh();

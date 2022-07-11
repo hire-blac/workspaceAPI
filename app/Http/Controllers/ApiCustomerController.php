@@ -36,7 +36,7 @@ class ApiCustomerController extends Controller
         
         $token = $customer->createToken('Personal Access Token',['customer'])->plainTextToken;
 
-        $response = ['message'=>'You have successfully registered', 'data'=>[
+        $response = ['message'=>'You have successfully registered as a customer', 'data'=>[
             'customer'=>$customer, 'token' => $token]];
 
         return response($response, 200);
@@ -57,7 +57,7 @@ class ApiCustomerController extends Controller
           
           $token = $customer->createToken('Personal Access Token',['customer'])->plainTextToken;
           
-          $response = ['message'=>'Login successfull', 'data'=>[
+          $response = ['message'=>'Customer login successfull', 'data'=>[
             'customer'=>$customer, 'token' => $token]];
 
           return response($response, 200);
