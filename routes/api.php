@@ -70,15 +70,12 @@ Route::middleware(['cors', 'json'])->group(function(){
       Route::delete("hourly-booking/{id}/delete", [HourlyBookinController::class, "destroy"]);
       
       Route::get("bookings/{id?}", [BookingsController::class, "index"]);
-      Route::get("bookings/day-bookings/{day}", [BookingsController::class, "day_bookings"]);
       Route::delete("bookings/{id}/delete", [BookingsController::class, "destroy"]);
 
-      Route::get("space-type/{id?}", [SpaceTypeController::class, "index"]);
       Route::post("space-type/new", [SpaceTypeController::class, "store"]);
       Route::put("space-type/{id}/update", [SpaceTypeController::class, "update"]);
       Route::delete("space-type/{id}/delete", [SpaceTypeController::class, "destroy"]);
       
-      Route::get("space/{id?}", [SpaceController::class, "index"]);
       Route::post("space/new", [SpaceController::class, "store"]);
       Route::put("space/{id}/update", [SpaceController::class, "update"]);
       Route::delete("space/{id}/delete", [SpaceController::class, "destroy"]);
@@ -90,9 +87,14 @@ Route::middleware(['cors', 'json'])->group(function(){
   Route::get("dailyhours/{id?}", [DailyHoursController::class, "index"]);
   Route::post("dailyhours/new", [DailyHoursController::class, "store"]);
   
+  Route::get("bookings/day-bookings/{day?}", [BookingsController::class, "day_bookings"]);
   Route::get("bookings/day-bookings/{day}/available", [BookingsController::class, "available_space"]);
   
   Route::get("available/{day}", [Availability::class, "hourlyAvailableSpace"]);
   Route::get("available/{day}/{space_type}", [Availability::class, "availableSpace"]);
+
+  Route::get("space/{id?}", [SpaceController::class, "index"]);
+
+  Route::get("space-type/{id?}", [SpaceTypeController::class, "index"]);
   
 });

@@ -1,8 +1,10 @@
 
 .staff-auth {
+  background-color: blue;
   color: red;
   text-shadow: 1px 1px 1px #333;
 }
 .customer-auth {
   color: blue;
+  text-shadow: 1px 1px 1px #333;
 }

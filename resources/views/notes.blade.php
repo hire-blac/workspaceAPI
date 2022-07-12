@@ -48,7 +48,7 @@
               </ul>
             </p>
 
-            <p>
+            <p class="staff-auth">
               User data required for login
               <ul>
                 <li>Email (email)</li>
