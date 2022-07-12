@@ -33,7 +33,7 @@
         <div class="container">
           
           <table class="table table-bordered border-primary">
-            <thead>Staff Authentication Routes</thead>
+            <thead class="staff-auth">Staff Authentication Routes</thead>
             <tr>
               <th>method</th>
               <th class="">description</th>
@@ -61,7 +61,7 @@
           </table>
 
           <table class="table table-bordered border-primary">
-            <thead>Customer Authentication Routes</thead>
+            <thead class="customer-auth">Customer Authentication Routes</thead>
 
             <tr>
               <td>post</td>

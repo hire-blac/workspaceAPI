@@ -56,6 +56,13 @@
               </ul>
             </p>
 
+            <h4>Sending Authenticated Requests to the Back-end API</h4>
+            <p>
+              Sending authenticated requests to the back-end API requires the 
+              authentication token to be attached to the <b>header</b> of the requests 
+              in the format {"Authorization": "Bearer {token}"}
+            </p>
+
             <h3>Workspace Types</h3>
             <p>
               The different types of workspaces available
